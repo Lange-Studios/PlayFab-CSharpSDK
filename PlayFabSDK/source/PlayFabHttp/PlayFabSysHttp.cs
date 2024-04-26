@@ -12,7 +12,7 @@ namespace PlayFab.Internal
     {
         protected HttpClient _client = new HttpClient();
 
-        public async Task<object> DoPost(string fullUrl, object request, Dictionary<string, string> extraHeaders)
+        public async Task<object> DoPost<T>(string fullUrl, T request, Dictionary<string, string> extraHeaders)
         {
             await new PlayFabUtil.SynchronizationContextRemover();
 

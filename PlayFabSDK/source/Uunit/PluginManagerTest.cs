@@ -25,12 +25,12 @@ namespace PlayFab.UUnit
                 throw new NotImplementedException();
             }
 
-            public string SerializeObject(object obj)
+            public string SerializeObject<T>(T obj)
             {
                 throw new NotImplementedException();
             }
 
-            public string SerializeObject(object obj, object serializerStrategy)
+            public string SerializeObject<T>(T obj, object serializerStrategy)
             {
                 throw new NotImplementedException();
             }
@@ -40,7 +40,7 @@ namespace PlayFab.UUnit
         {
             public string Name;
 
-            public Task<object> DoPost(string urlPath, object request, Dictionary<string, string> headers)
+            public Task<object> DoPost<T>(string urlPath, T request, Dictionary<string, string> headers)
             {
                 throw new NotImplementedException();
             }

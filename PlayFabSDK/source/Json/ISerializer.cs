@@ -32,17 +32,12 @@ namespace PlayFab.Json
             return _instance.DeserializeObject<T>(json, jsonSerializerStrategy);
         }
 
-        public static object DeserializeObject(string json)
-        {
-            return _instance.DeserializeObject(json);
-        }
-
-        public static string SerializeObject(object json)
+        public static string SerializeObject<T>(T json)
         {
             return _instance.SerializeObject(json);
         }
 
-        public static string SerializeObject(object json, object jsonSerializerStrategy)
+        public static string SerializeObject<T>(T json, object jsonSerializerStrategy)
         {
             return _instance.SerializeObject(json, jsonSerializerStrategy);
         }
@@ -156,12 +151,12 @@ namespace PlayFab.Json
             return PlayFabSimpleJson.DeserializeObject(json, typeof(object), ApiSerializerStrategy);
         }
 
-        public string SerializeObject(object json)
+        public string SerializeObject<T>(T json)
         {
             return PlayFabSimpleJson.SerializeObject(json, ApiSerializerStrategy);
         }
 
-        public string SerializeObject(object json, object jsonSerializerStrategy)
+        public string SerializeObject<T>(T json, object jsonSerializerStrategy)
         {
             return PlayFabSimpleJson.SerializeObject(json, (IJsonSerializerStrategy)jsonSerializerStrategy);
         }

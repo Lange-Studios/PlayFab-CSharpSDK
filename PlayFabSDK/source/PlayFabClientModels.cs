@@ -4597,6 +4597,8 @@ namespace PlayFab.ClientModels
         /// </summary>
         public string TitleId ;
 
+        public string AccessToken;
+
     }
 
     /// <summary>

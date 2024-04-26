@@ -8,6 +8,6 @@ namespace PlayFab
     /// </summary>
     public interface ITransportPlugin : IPlayFabPlugin
     {
-        Task<object> DoPost(string fullPath, object request, Dictionary<string, string> headers);
+        Task<object> DoPost<T>(string fullPath, T request, Dictionary<string, string> headers);
     }
 }

@@ -47,7 +47,7 @@ namespace PlayFab.Internal
 
     public static class PlayFabHttp
     {
-        public static async Task<object> DoPost(string urlPath, PlayFabRequestCommon request, string authType, string authKey, Dictionary<string, string> extraHeaders, PlayFabApiSettings instanceSettings = null)
+        public static async Task<object> DoPost<T>(string urlPath, T request, string authType, string authKey, Dictionary<string, string> extraHeaders, PlayFabApiSettings instanceSettings = null) where T: PlayFabRequestCommon
         {
             await new PlayFabUtil.SynchronizationContextRemover();
 
@@ -56,14 +56,14 @@ namespace PlayFab.Internal
             return await _DoPost(fullPath, request, authType, authKey, extraHeaders, instanceSettings);
         }
 
-        public static async Task<object> DoPostWithFullUri(string fullUriPath, PlayFabRequestCommon request, string authType, string authKey, Dictionary<string, string> extraHeaders, PlayFabApiSettings instanceSettings = null)
+        public static async Task<object> DoPostWithFullUri<T>(string fullUriPath, T request, string authType, string authKey, Dictionary<string, string> extraHeaders, PlayFabApiSettings instanceSettings = null) where T: PlayFabRequestCommon
         {
             await new PlayFabUtil.SynchronizationContextRemover();
 
             return await _DoPost(fullUriPath, request, authType, authKey, extraHeaders, instanceSettings);
         }
 
-        private static async Task<object> _DoPost(string fullPath, PlayFabRequestCommon request, string authType, string authKey, Dictionary<string, string> extraHeaders, PlayFabApiSettings instanceSettings = null)
+        private static async Task<object> _DoPost<T>(string fullPath, T request, string authType, string authKey, Dictionary<string, string> extraHeaders, PlayFabApiSettings instanceSettings = null) where T: PlayFabRequestCommon
         {
             var settings = instanceSettings ?? PlayFabSettings.staticSettings;
             var titleId = settings.TitleId;
