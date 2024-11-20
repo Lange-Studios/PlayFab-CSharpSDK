@@ -3785,6 +3785,8 @@ namespace PlayFab.ClientModels
         /// </summary>
         public string ServerAuthCode ;
 
+        public string AccessToken ;
+
     }
 
     public class LinkGoogleAccountResult : PlayFabResultCommon
